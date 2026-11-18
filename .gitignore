@@ -1,0 +1,5 @@
+# Never commit a real configuration: it contains API keys.
+config
+.env
+*.log
+*.pid
