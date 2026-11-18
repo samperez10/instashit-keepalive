@@ -9,6 +9,7 @@
 #
 #   Install (interactive):
 #     sh instabox-keepalive.sh install
+#   (running it with no arguments does the same)
 #
 #   Install (no prompts):
 #     IBK_KEYS=ibk_xxx sh instabox-keepalive.sh install
@@ -34,7 +35,7 @@ APP=instabox-keepalive
 API_DEFAULT=https://api.instabox.sh
 DEFAULT_TTL=300
 DEFAULT_LEASE=keepalive
-# Set this after you publish this file, so `curl ... | sh` can install itself.
+# Where this file lives, so piping it into sh can install a copy of itself.
 SELF_URL=${IBK_SELF_URL:-https://raw.githubusercontent.com/samperez10/instashit-keepalive/main/instabox-keepalive.sh}
 
 [ "$(id -u)" -eq 0 ] && DEFAULT_HOME=/etc/instabox-keepalive \
@@ -1226,7 +1227,8 @@ main() {
 		uninstall|--uninstall) do_uninstall "$@" ;;
 		run|--run) do_run ;;
 		selftest|--selftest) selftest ;;
-		-h|--help|help|'') usage ;;
+		-h|--help|help) usage ;;
+		'') do_install ;;
 		*) usage >&2; exit 2 ;;
 	esac
 }
