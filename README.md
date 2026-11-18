@@ -36,7 +36,7 @@ One-liner variant (no file left behind; the installer downloads its own copy
 for the service):
 
 ```sh
-sh -c 'curl -fsSL https://raw.githubusercontent.com/samperez10/instashit-keepalive/main/instabox-keepalive.sh | sh'
+sh -c 'curl -fsSL https://raw.githubusercontent.com/samperez10/instashit-keepalive/main/instabox-keepalive.sh | sh -s install'
 ```
 
 No prompts:
